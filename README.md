@@ -71,7 +71,7 @@ In this phase, we'll delve into a scenario where an attacker leverage the expose
 ### Tasks
 1. **Implement Tracee in CI/CD**
    - Integrate Tracee into the [deploy-gh-pages.yml](.github/workflows/deploy-gh-pages.yml) workflow to detect malicious activities.
-     - create a new branch that has these changes
+     - create a new branch
      - add start tracee step after the `Checkout` step name
    ```
       - name: Start Tracee profiling in background
@@ -93,7 +93,7 @@ In this phase, we'll delve into a scenario where an attacker leverage the expose
      id-token: write
      pull-requests: write
    ```
-    - create the PR
+    - push chances to branch & create the PR
    
 
 2. **Identify and Fix Malicious Payload**
