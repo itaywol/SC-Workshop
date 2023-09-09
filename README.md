@@ -106,6 +106,9 @@ In this phase, we'll delve into a scenario where an attacker leverage the expose
 3. **Enforce Signed Commits**
    - Restrict the acceptance of commits to the main branch to only those signed with approved keys.
 
+4. **Bonus - Analyze The Malicous Source**
+   - Investigate the source of the miner payload, and find the malicous commit in the dependency repository
+
 ## Phase 3: Critical Vulnerability Emerged
 ### Scenario
 In this phase, we'll delve into a scenario where an emerging critical vulnrability published and we are in a rush to identify where it used and mitigate the risk.
