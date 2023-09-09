@@ -3,12 +3,14 @@
 Welcome to the Software Supply Chain Workshop, focused on enhancing your skills in securing the software supply chain using open source tools. In this hands-on workshop, participants will engage in practical exercises designed to simulate real-world scenarios involving breached systems, vulnerabilities, and their corresponding solutions. Through these exercises, you'll learn how to identify, mitigate, and defend against security threats within the software supply chain.
 
 ## Prerequisite
- - Fork the repository
+ - Fork the repository into your Organization
  - UNCHECK "copy the 'master' branch only"
  - On your Forked Repository Go to "Settings" Tab
  - Go to Pages and in the "Source" field choose "Github actions"
  - Go to "Actions" Tab and click "I understand my workflows, go ahead and enable them"
  - Go to "Deploy Page", click on "Run Workflow" and choose from "main" branch
+ - Go to your Organization settings and choose Action->General
+ - Under Workflow choose `Allow GitHub Actions to create and approve pull requests`
  - Wait 2 min for the Action Run to be completed
  - Go to the link under the deploy step, or directly to this address `https://<USER>.github.io/<REPOSITORY>`
  - Make sure "you have been pwned"
