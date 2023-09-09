@@ -103,11 +103,11 @@ In this phase, we'll delve into a scenario where an attacker leverage the expose
    - Analyze profiles files again to verify the malicious payloads removed
    - Merge both PRs
 
-3. **Enforce Signed Commits**
-   - Restrict the acceptance of commits to the main branch to only those signed with approved keys.
-
-4. **Bonus - Analyze The Malicous Source**
+3. **Analyze The Malicous Source**
    - Investigate the source of the miner payload, and find the malicous commit in the dependency repository
+     
+4. **Enforce Signed Commits**
+   - Restrict the acceptance of commits to the main branch to only those signed with approved keys.
 
 ## Phase 3: Critical Vulnerability Emerged
 ### Scenario
