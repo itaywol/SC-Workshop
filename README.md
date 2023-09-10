@@ -111,6 +111,16 @@ In this phase, we'll delve into a scenario where an attacker leverage the expose
 4. **Enforce Signed Commits**
    - Restrict the acceptance of commits to the main branch to only those signed with approved keys.
 
+5. **Bonus - Poison Dependency**
+   - Create a new Github Action with legit content
+   - Publish it
+   - Add it into your [deploy-gh-pages.yml](.github/workflows/deploy-gh-pages.yml) with the Action Tag
+   - Review the PR comments and the profile updates & merge
+   - In your brand new github action Add a new command that creating new files\override exsiting ones
+   - Push it into the exsiting version
+   - In your workshop repository create any new change and Open PR
+   - Make sure you see the both PR comments with signiture and Profile deviation updates
+
 ## Phase 3: Critical Vulnerability Emerged
 ### Scenario
 In this phase, we'll delve into a scenario where an emerging critical vulnrability published and we are in a rush to identify where it used and mitigate the risk.
