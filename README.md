@@ -4,7 +4,6 @@ Welcome to the Software Supply Chain Workshop, focused on enhancing your skills 
 
 ## Prerequisite
  - Fork the repository into your Organization
- - UNCHECK "copy the 'master' branch only"
  - On your Forked Repository Go to "Settings" Tab
  - Go to Pages and in the "Source" field choose "Github actions"
  - Go to "Actions" Tab and click "I understand my workflows, go ahead and enable them"
@@ -44,7 +43,7 @@ jobs:
       with:
         scan-type: "fs"
         format: 'table'
-        exit-code: '1'
+        exit-code: '0'
         scanners: 'secret'
 ```
    - Run the new workflow and find the credential within the workflow logs
