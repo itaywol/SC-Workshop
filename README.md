@@ -148,7 +148,7 @@ jobs:
       uses: aquasecurity/trivy-action@master
       with:
         scan-type: "fs"
-        format: 'table'
+        format: 'sarif'
         ignore-unfixed: true
         scanners: 'vuln'
         exit-code: '0'
@@ -177,8 +177,9 @@ on:
       - main
 ```
    - Change the build->name field so you can specify it later in the branch protection rules
-   - Remove permissions field
-   - Remove format & output field
+   - Remove permissions
+   - Change format field to `sarif`
+   - Remove output field
    - Change `exit-code: '1'`
    - Remove Upload action step
    - Add to the branch protection enforcment for vulnerability scanner with the new name
