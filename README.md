@@ -30,7 +30,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Secret Scanner
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: ${{ github.repository }}
