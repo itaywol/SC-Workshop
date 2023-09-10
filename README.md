@@ -101,7 +101,7 @@ In this phase, we'll delve into a scenario where an attacker leverage the expose
 2. **Identify and Fix Malicious Payload**
    - Analyze the PR commnets to identify the introduced malicious payload.
    - Analyze the profiles in the new `Updates to tracee profile` PR
-   - remove the malicious parts
+   - Fix the malicious parts
    - Analyze profiles files again to verify the malicious payloads removed
    - Merge both PRs
 
