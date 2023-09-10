@@ -154,11 +154,7 @@ jobs:
         exit-code: '1'
         severity: 'CRITICAL,HIGH,MEDIUM'
 ```
-   - Fix vulnerable dependencies in `package.json` and don't forget to update `package-lock.json` by `npm i --package-lock` inside `my-app` directory
-
-2. **Vulnerability Checks for PRs**
-   - Add to the branch protection enforcment for vulnerability scanner
-3. **Upload results to Security Tab**
+2. **Upload results to Security Tab**
    - add proper permission:
 ```
 permissions:
@@ -173,7 +169,11 @@ permissions:
         sarif_file: 'trivy-results.sarif'
         category: Trivy
 ```
+3. **Vulnerability Checks for PRs**
+   - Add to the branch protection enforcment for vulnerability scanner
 4. **Check Security Tab**
-5. **Bonus - Add a cron job trigger that will run the vulnerability scanner every night - Bonus**
-6. **Enfore Code Reviews**
+5. **Fix Vulnrable Dependency**
+   - Fix vulnerable dependencies in `package.json` and don't forget to update `package-lock.json` by `npm i --package-lock` inside `my-app` directory 
+7. **Bonus - Add a cron job trigger that will run the vulnerability scanner every night - Bonus**
+8. **Enfore Code Reviews**
    - Add to the branch protection rule on the main branch, request to review and approve by other contributors before changes are merged.
