@@ -178,7 +178,7 @@ on:
 ```
    - Change the build->name field so you can specify it later in the branch protection rules
    - Remove permissions
-   - Change format field to `sarif`
+   - Change format field to `table`
    - Remove output field
    - Change `exit-code: '1'`
    - Remove Upload action step
