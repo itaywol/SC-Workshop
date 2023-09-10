@@ -126,6 +126,7 @@ In this phase, we'll delve into a scenario where an emerging critical vulnrabili
 
 ### Tasks
 1. **Scan Dependency Vulnerability**
+   - Add a new workflow with vulnerablity scanner for you code dependencies:
 ```
 name: 03.01 - Run Vulnrabilities Scanning
 on:
@@ -163,6 +164,7 @@ jobs:
         sarif_file: 'trivy-results.sarif'
         category: Trivy
 ```
+  - Merge create PR and merge into main branch
 3. **Check Security Tab**
    - Make sure you see new record in Security Tab, review the Vulnerability
 5. **Vulnerability Checks for PRs**
