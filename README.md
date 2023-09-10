@@ -125,17 +125,16 @@ In this phase, we'll delve into a scenario where an attacker leverage the expose
 In this phase, we'll delve into a scenario where an emerging critical vulnrability published and we are in a rush to identify where it used and mitigate the risk.
 
 ### Tasks
-1. **Address Dependency Vulnerability**
-   - Create a new workflow that run Trivy Action for every PR Creation and fails if there are Medium to Critical Vulnerabilties
+1. **Scan Dependency Vulnerability**
 ```
 name: 03.01 - Run Vulnrabilities Scanning
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+permissions:
+  security-events: write
+  
 jobs:
   build:
     name: Vulnerabilities-Scanner
@@ -151,17 +150,12 @@ jobs:
         format: 'table'
         ignore-unfixed: true
         scanners: 'vuln'
-        exit-code: '1'
+        exit-code: '0'
         severity: 'CRITICAL,HIGH,MEDIUM'
+        output: 'trivy-results.sarif'
 ```
 2. **Upload results to Security Tab**
-   - add proper permission:
-```
-permissions:
-  security-events: write
-```
-   - Change trivy-action format to `sarif` and set the `output` file
-   - After the scanning part add a new step to upload Trivy results to Security Tab
+   - At the bottom & after the scanning part add a new step to upload Trivy results to Security Tab
 ```
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v2
@@ -169,9 +163,24 @@ permissions:
         sarif_file: 'trivy-results.sarif'
         category: Trivy
 ```
-3. **Vulnerability Checks for PRs**
-   - Add to the branch protection enforcment for vulnerability scanner
-4. **Check Security Tab**
+3. **Check Security Tab**
+   - Make sure you see new record in Security Tab, review the Vulnerability
+5. **Vulnerability Checks for PRs**
+   - Duplicate the previus workflow
+   - Change trigger to be on Pr creation 
+```
+on:
+  pull_request:
+    branches:
+      - main
+```
+   - Change the build->name field so you can specify it later in the branch protection rules
+   - Remove permissions field
+   - Remove format & output field
+   - Change `exit-code: '1'`
+   - Remove Upload action step
+   - Add to the branch protection enforcment for vulnerability scanner with the new name
+
 5. **Fix Vulnrable Dependency**
    - Fix vulnerable dependencies in `package.json` and don't forget to update `package-lock.json` by `npm i --package-lock` inside `my-app` directory 
 7. **Bonus - Add a cron job trigger that will run the vulnerability scanner every night - Bonus**
