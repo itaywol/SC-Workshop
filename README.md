@@ -22,7 +22,7 @@ In this phase, we'll explore a scenario where a secret of a stale collaborator h
 
 ### Tasks
 1. **Find and Revoke Secrets**
-   - Create a new pipeline named `01.01 - Exposed Credential.yml` that scan the repository to locate exposed secrets with Trivy Action
+   - Create a new pipeline named `01.01 - Exposed Credential.yml` under `.github\workflows` that scan the repository to locate exposed secrets with Trivy Action
 ```
 name: 01.01 - Detect Exposed Credential
 on: 
