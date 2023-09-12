@@ -1,0 +1,23 @@
+name: 03.01 - Run Vulnrabilities Scanning PR
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Vulnerabilities-Scanner PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run vulnerabilities scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          format: "table"
+          ignore-unfixed: true
+          scanners: "vuln"
+          exit-code: "1"
+          severity: "CRITICAL,HIGH,MEDIUM"
