@@ -1,0 +1,20 @@
+name: 01.01 - Detect Exposed Credential
+on: "workflow_dispatch"
+
+jobs:
+  build:
+    name: Secret Scanner
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: ${{ github.repository }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run secret scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          format: "table"
+          exit-code: "1"
+          scanners: "secret"
