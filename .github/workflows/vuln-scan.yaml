@@ -1,0 +1,32 @@
+name: 03.01 - Run Vulnrabilities Scanning
+on:
+  push:
+    branches:
+      - main
+permissions:
+  security-events: write
+
+jobs:
+  build:
+    name: Vulnerabilities-Scanner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run vulnerabilities scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          format: "sarif"
+          ignore-unfixed: true
+          scanners: "vuln"
+          exit-code: "0"
+          severity: "CRITICAL,HIGH,MEDIUM"
+          output: "trivy-results.sarif"
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: "trivy-results.sarif"
+          category: Trivy
